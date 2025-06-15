@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kredzy - Government-Backed Loans Made Simple</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="text-gradient">Kredzy</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#schemes">Schemes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#refer">Refer & Earn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html" target="_blank">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary login-btn text-white" href="#" id="loginButton">
+                            <i class="fas fa-user me-2"></i>Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="loginModalLabel">Welcome Back</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <span class="modal-icon"><i class="fas fa-user-circle"></i></span>
+                        <h4 class="mt-3">Sign in to your account</h4>
+                        <p class="text-muted">Access all your loan applications and account details</p>
+                    </div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                            <a href="#" class="float-end">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Login</button>
+                        <div class="text-center">
+                            <p class="mb-0">Don't have an account? <a href="#">Sign up</a></p>
+                        </div>
+                    </form>
+                    <div class="social-login mt-4">
+                        <p class="text-center mb-3">Or login with</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button class="btn btn-outline-secondary social-btn">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button class="btn btn-outline-secondary social-btn">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button class="btn btn-outline-secondary social-btn">
+                                <i class="fab fa-apple"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style>
+/* Custom styles for FAQ page */
+/* FAQ Hero Icon */
+.faq-hero-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(4, 80, 78, 0.1); /* light primary */
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* FAQ Accordion Item */
+.faq-accordion-item {
+  background-color: var(--light-color); /* #f3f4f6 */
+  border: 1px solid #e0f0f0; /* Very light border */
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* subtle shadow */
+}
+
+.faq-accordion-button {
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: transparent; /* No background for button itself */
+  padding: 1.25rem 1.5rem;
+  border: none;
+  border-radius: 0.8rem;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.faq-accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.faq-accordion-button::after {
+  content: "\f078"; /* Font Awesome chevron-down */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-accordion-button.collapsed::after {
+  transform: rotate(0deg);
+}
+
+.faq-accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg);
+}
+
+.faq-accordion-number {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(4, 80, 78, 0.1); /* light primary */
+  color: var(--primary-color);
+  border-radius: 0.4rem; /* Slightly rounded square */
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+}
+
+.faq-accordion-body {
+  padding: 0 1.5rem 1.5rem 1.5rem; /* Padding for content */
+  padding-left: calc(1.5rem + 40px + 1rem); /* Align with text, considering number */
+  color: #4b5563; /* Subtitle color for text */
+  line-height: 1.7;
+}
+
+/* Adjust padding for the first item's content as it directly follows the header, not another accordion button */
+.accordion-item:first-of-type .accordion-collapse.show .accordion-body {
+    padding-top: 1.5rem; /* Add some top padding if it's the first opened item */
+}
+
+</style>
+
+<!-- Hero Section for FAQ -->
+<section class="py-5" style="background: linear-gradient(90deg, #f3f4f6 60%, #e0f7fa 100%); margin-top: 70px;">
+  <div class="container">
+    <div class="text-center">
+      <div class="faq-hero-icon">
+        <i class="fas fa-question"></i>
+      </div>
+      <h1 class="display-5 fw-bold mb-2 text-gradient" style="background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">How can we help you?</h1>
+      <p class="lead text-muted mb-0">Find answers to common questions about Kredzy</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Accordion Section -->
+<section class="py-5" style="background: var(--body-color);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-md-10">
+        <div class="accordion accordion-flush" id="faqAccordion">
+          <!-- FAQ Item 1 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingOne">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="false" aria-controls="faqCollapseOne">
+                <div class="faq-accordion-number">1</div>
+                What is Kredzy?
+              </button>
+            </h2>
+            <div id="faqCollapseOne" class="accordion-collapse collapse" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Kredzy is a fintech platform that connects users with the right financial products, including government-backed loans, private loans, NBFC loans, and in-house financing. We simplify the lending process and promote financial literacy.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingTwo">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                <div class="faq-accordion-number">2</div>
+                Is Kredzy a bank or NBFC?
+              </button>
+            </h2>
+            <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Kredzy is currently a financial technology platform that partners with banks, NBFCs, and other financial institutions. We are also in the process of establishing our own NBFC for direct lending.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingThree">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                <div class="faq-accordion-number">3</div>
+                What types of loans does Kredzy offer?
+              </button>
+            </h2>
+            <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Kredzy facilitates:
+                <ul>
+                  <li>Government-backed loans (e.g., Mudra, Stand-Up India)</li>
+                  <li>Personal and business loans</li>
+                  <li>Loans from NBFCs</li>
+                  <li>Self-NBFC loans (Kredzy lending in future)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingFour">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                <div class="faq-accordion-number">4</div>
+                Who can apply for a loan on Kredzy?
+              </button>
+            </h2>
+            <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Anyone aged 18+ with valid KYC documents and income proof (or a viable business plan for business loans).
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingFive">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                <div class="faq-accordion-number">5</div>
+                What is the loan approval process?
+              </button>
+            </h2>
+            <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                The loan approval process typically involves:
+                <ol>
+                  <li>Submitting your application with required documents.</li>
+                  <li>Credit assessment by Kredzy and/or partnered lenders.</li>
+                  <li>Loan offer and acceptance.</li>
+                  <li>Disbursal of funds.</li>
+                </ol>
+                The timeline varies based on the loan type and lender.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingSix">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSix" aria-expanded="false" aria-controls="faqCollapseSix">
+                <div class="faq-accordion-number">6</div>
+                Do I need a high CIBIL score?
+              </button>
+            </h2>
+            <div id="faqCollapseSix" class="accordion-collapse collapse" aria-labelledby="faqHeadingSix" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Not necessarily. Kredzy works with lenders who serve low-credit or no-credit individuals. We also offer our own internal credit system for certain loan categories.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 7 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingSeven">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSeven" aria-expanded="false" aria-controls="faqCollapseSeven">
+                <div class="faq-accordion-number">7</div>
+                How does Kredzy's internal credit scoring work?
+              </button>
+            </h2>
+            <div id="faqCollapseSeven" class="accordion-collapse collapse" aria-labelledby="faqHeadingSeven" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Our internal credit score is based on your usage, repayments, and financial behavior on the app.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 8 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingEight">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseEight" aria-expanded="false" aria-controls="faqCollapseEight">
+                <div class="faq-accordion-number">8</div>
+                How does Kredzy's referral program work?
+              </button>
+            </h2>
+            <div id="faqCollapseEight" class="accordion-collapse collapse" aria-labelledby="faqHeadingEight" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Invite friends to join Kredzy. When they transact, you earn commission, which can be withdrawn or reinvested.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 9 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingNine">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseNine" aria-expanded="false" aria-controls="faqCollapseNine">
+                <div class="faq-accordion-number">9</div>
+                Is Kredzy safe to use?
+              </button>
+            </h2>
+            <div id="faqCollapseNine" class="accordion-collapse collapse" aria-labelledby="faqHeadingNine" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                Absolutely. We use bank-level encryption and comply with RBI guidelines through our lending partners. Your data is safe and never shared without consent.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 10 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingTen">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTen" aria-expanded="false" aria-controls="faqCollapseTen">
+                <div class="faq-accordion-number">10</div>
+                How much TDS will be deducted?
+              </button>
+            </h2>
+            <div id="faqCollapseTen" class="accordion-collapse collapse" aria-labelledby="faqHeadingTen" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                2% TDS is deducted from the payout you withdraw. Please note that if your PAN card is not linked with your Aadhar it will result in a 20% TDS deduction from the total amount.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 11 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingEleven">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseEleven" aria-expanded="false" aria-controls="faqCollapseEleven">
+                <div class="faq-accordion-number">11</div>
+                What is TDS? Why it is deducted from my payout?
+              </button>
+            </h2>
+            <div id="faqCollapseEleven" class="accordion-collapse collapse" aria-labelledby="faqHeadingEleven" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                TDS is basically a part of income tax. It has to be deducted by a person for certain payments made by them. According to the Income Tax Act, 1961, every individual or organization is liable to pay taxes if their income is above a certain threshold TDS deduction is applicable to multiple types of payments, including- Salary, Rent, Commission earned, Interest, Professional/consultant fees.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 12 -->
+          <div class="accordion-item faq-accordion-item">
+            <h2 class="accordion-header" id="faqHeadingTwelve">
+              <button class="accordion-button faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwelve" aria-expanded="false" aria-controls="faqCollapseTwelve">
+                <div class="faq-accordion-number">12</div>
+                How can I contact customer support?
+              </button>
+            </h2>
+            <div id="faqCollapseTwelve" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwelve" data-bs-parent="#faqAccordion">
+              <div class="accordion-body faq-accordion-body">
+                You can reach us via the Kredzy app chat support or email us at <a href="mailto:support@kredzy.in" class="text-decoration-none text-primary">support@kredzy.in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="row footer-top">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="assets/img/logocdr.png" alt="Kredzy Logo" class="footer-logo mb-4" style="max-width: 80px; height: auto;">
+                        <p class="mb-4">Making government loans accessible to everyone. We simplify the process of finding and applying for government-backed loan schemes.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"> <i class="fab fa-x-twitter"></i>   </a>
+                            <a href="https://www.instagram.com/kredzy.in?igsh=OWl0NndqdnRicGcz" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            <a href="https://whatsapp.com/channel/0029VbAlhezA2pLFvGVfPP0B" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                    <h5 class="footer-title">Products</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Government Loans</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Business Loans</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Personal Loans</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Home Loans</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Credit Cards</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                    <h5 class="footer-title">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="about-us.html" target="_blank"><i class="fas fa-chevron-right me-2"></i>About Us</a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right me-2"></i>FAQs</a></li>
+                        <li><a href="privacy-policy.html"><i class="fas fa-chevron-right me-2"></i>Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html"><i class="fas fa-chevron-right me-2"></i>Terms & Conditions</a></li>
+                        <li><a href="data-deletion-instructions.html"><i class="fas fa-chevron-right me-2"></i>Data Deletion Instructions</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Stay Connected</h5>
+                    <p class="mb-3">Subscribe to our newsletter for updates on new loan schemes and financial tips.</p>
+                    <form class="footer-subscribe">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="app-download">
+                        <h6 class="mb-3">Download Our App</h6>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-outline-light app-btn">
+                                <i class="fab fa-google-play me-2"></i>
+                                <div class="app-btn-text">
+                                    <small>GET IT ON</small>
+                                    <div>Google Play</div>
+                                </div>
+                            </a>
+                            <a href="#" class="btn btn-outline-light app-btn">
+                                <i class="fab fa-apple me-2"></i>
+                                <div class="app-btn-text">
+                                    <small>Download on the</small>
+                                    <div>App Store</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <div class="row">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h6>Our Location</h6>
+                                <p class="mb-0">Gurgaon - 12201 (H.R) </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h6>Call Us</h6>
+                                <p class="mb-0">+888 2769 362 (Toll Free)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h6>Email Us</h6>
+                                <p class="mb-0">KREDZY.IN@GMAIL.COM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-12 mb-3 mb-md-0 justify-content-center d-flex">
+                        <p class="mb-0">© 2025 Kredzy. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</footer>
+
+<!-- Bootstrap 5 JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+
+
+</html>
