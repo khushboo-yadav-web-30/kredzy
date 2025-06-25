@@ -283,27 +283,6 @@ overflow: hidden;
     height: auto;
     display: block;
 }
-
-.trusted-by {
-    margin-top: 2rem;
-}
-
-.trusted-logo {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: #6b7280;
-    transition: var(--transition);
-}
-
-.trusted-logo:hover {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transform: translateY(-2px);
-}
-
 .shape-divider {
     position: absolute;
     bottom: 0;
@@ -311,6 +290,9 @@ overflow: hidden;
     width: 100%;
     overflow: hidden;
     line-height: 0;
+}
+.step-number{
+    margin: 5px;
 }
 
 .shape-divider svg {
@@ -714,21 +696,53 @@ font-size: 0.8rem;
 }
 
 .info-card {
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    padding: 2rem 1.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: none;
+    overflow: hidden;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    border: 1px solid #f3f4f6;
+}
+
+.info-card.bg-warning-subtle {
+    background: #fffbe7;
+}
+
+.info-card.bg-info-subtle {
+    background: #e7f7ff;
 }
 
 .info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 8px 32px rgba(4, 80, 78, 0.13);
+    transform: translateY(-6px) scale(1.03);
+}
+
+.info-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    box-shadow: none;
+    background: none;
+    border: none;
+    margin: 0;
+    display: block;
+}
+
+.info-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.info-card-desc {
+    font-size: 0.98rem;
+    color: #4b5563;
+    margin-bottom: 0;
 }
 
 .info-icon {
@@ -1064,6 +1078,17 @@ font-size: 0.8rem;
     .hero-section h1 {
         font-size: 2.25rem;
     }
+    .info-card {
+        min-height: 320px;
+        padding: 1rem 0.5rem 1.5rem 0.5rem;
+    }
+    .info-card-img-wrap {
+        height: 30%;
+    }
+    .info-card-img {
+        min-height: 80px;
+        max-height: 140px;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -1132,4 +1157,14 @@ font-size: 0.8rem;
 
 hr {
     border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Force same max-width for .container on all screens, override Bootstrap breakpoints */
+.container {
+  max-width: 1140px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
 }
