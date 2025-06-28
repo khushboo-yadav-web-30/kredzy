@@ -264,6 +264,8 @@ overflow: hidden;
     position: relative;
     max-width: 100%;
     height: auto;
+    justify-content: center;
+    display: flex;
     border-radius: 2.5rem;
     overflow: hidden;
     padding: 0.5rem;
@@ -722,7 +724,7 @@ font-size: 0.8rem;
 .info-card-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: 1.5rem;
     box-shadow: none;
     background: none;
@@ -1079,7 +1081,6 @@ font-size: 0.8rem;
         font-size: 2.25rem;
     }
     .info-card {
-        min-height: 320px;
         padding: 1rem 0.5rem 1.5rem 0.5rem;
     }
     .info-card-img-wrap {
@@ -1159,12 +1160,26 @@ hr {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Force same max-width for .container on all screens, override Bootstrap breakpoints */
-/* .container {
-  max-width: 1140px !important;
-  width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 24px !important;
-  padding-right: 24px !important;
-} */
+.hero-section,
+.lending-products,
+.govt-schemes,
+.why-kredzy,
+.create-reels,
+.footer-main {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+/* Force .container to be full width on all screen sizes */
+.container {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box;
+  }
+  
