@@ -236,11 +236,52 @@ a:hover {
 .modal.show .modal-dialog {
     transform: scale(1);
 }
+    .hero-section {
+        background: linear-gradient(to bottom,
+            #fff 0%,
+            #fff 30%,
+            #f9fafb 30%,
+            #f9fafb 70%,
+            #fff 70%,
+            #fff 100%
+        );
+        padding: 3rem 0 5rem;
+        position: relative;
+        overflow: hidden;
+    }
 
+    .phone-mockup {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .phone-screen img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 2rem 0 3rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-section {
+            padding: 1.5rem 0 2.5rem;
+        }
+    }
 /* Hero Section */
 .hero-section {
-background: linear-gradient(135deg, rgba(245, 247, 255, 0.9),),
-        url('img/background-website-1920x1080.jpg') no-repeat center center / cover;
+    background: linear-gradient(to bottom,
+    #fff 32%,
+    #fff 25%,
+    #f9fafb  25%,
+    #f9fafb  75%,
+    #fff 50%,
+    #fff 100%
+);
 padding: 3rem 0 5rem;
 position: relative;
 overflow: hidden;
