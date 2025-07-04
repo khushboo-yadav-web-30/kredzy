@@ -45,4 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // Section fade-in animation on scroll
+    document.querySelectorAll("section").forEach(sec => sec.classList.add("section-animate"));
+
+    const observer = new window.IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".section-animate").forEach(sec => observer.observe(sec));
+
+    document.body.classList.add('page-loaded');
 });
