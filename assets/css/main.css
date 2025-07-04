@@ -19,6 +19,11 @@ body {
     background-color: var(--body-color);
     line-height: 1.6;
     overflow-x: hidden;
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(.4,0,.2,1);
+}
+body.page-loaded {
+    opacity: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,6 +39,9 @@ a {
 a:hover {
     color: var(--primary-dark);
 }
+html {
+    scroll-padding-top: 90px; /* ya jitna aapke navbar ki height ho */
+  }
 
 .section-title {
     font-size: 2.25rem;
@@ -100,18 +108,19 @@ a:hover {
 }
 
 .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
+    left: 50%;
+    bottom: 0;
     width: 0;
     height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary-color);
-    transition: var(--transition);
+    background: #04504e;
+    transition: all 0.4s cubic-bezier(.4,0,.2,1);
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
+    left: 0;
     width: 100%;
 }
 
@@ -132,6 +141,15 @@ a:hover {
     display: none;
 }
 
+.navbar .login-btn.active,
+.navbar .nav-link.btn.active,
+.navbar .login-btn:hover,
+.navbar .login-btn:focus {
+    background-color: #fff212 !important;
+    color: #111827 !important;
+    border-color: #fff212 !important;
+}
+
 .login-btn {
     box-shadow: 0 2px 5px rgba(4, 80, 78, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -140,6 +158,12 @@ a:hover {
 .login-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(4, 80, 78, 0.4);
+}
+
+.login-btn.active, .nav-link.btn.active {
+    background-color: #fff212 !important;
+    color: #111827 !important;
+    border-color: #fff212 !important;
 }
 
 /* Login Modal */
@@ -364,19 +388,53 @@ overflow: hidden;
     border-radius: var(--border-radius);
     font-weight: 500;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    box-shadow: 0 4px 6px rgba(4, 80, 78, 0.25);
+.btn::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(13,110,253,0.15);
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    z-index: 0;
 }
 
+.btn:active::before {
+    width: 200%;
+    height: 200%;
+    transition: 0s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 16px 0 rgba(13,110,253,0.18);
+}
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary.active,
 .btn-primary:hover {
-    background-color: var(--primary-dark);
-    border-color: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(4, 80, 78, 0.35);
+    background-color: #04504e !important;
+    border-color: #04504e !important;
+    color: #fff !important;
+    box-shadow: 0 4px 8px rgba(4, 80, 78, 0.18);
+}
+
+.btn:active,
+.btn:focus,
+.btn.active {
+    background-color: #04504e !important;
+    border-color: #04504e !important;
+    color: #fff !important;
+    box-shadow: 0 4px 8px rgba(4, 80, 78, 0.18);
 }
 
 .btn-outline-primary {
@@ -663,7 +721,7 @@ font-size: 0.8rem;
 
 .reel-preview {
     position: relative;
-    max-width: 300px;
+    max-width: 350px;
     margin: 0 auto;
     transition: transform 0.5s ease;
 }
@@ -919,7 +977,7 @@ font-size: 0.8rem;
 
 .social-link:hover {
     background-color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.15) rotate(-5deg);
     color: #fff;
 }
 
@@ -1236,5 +1294,50 @@ hr {
     padding-left: 24px !important;
     padding-right: 24px !important;
     box-sizing: border-box;
+  }
+  
+/* Section Fade-in Animation */
+.section-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+.section-animate.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Loan Card Hover Animation (lift & glow) */
+.loan-card, .info-card {
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.4s cubic-bezier(.4,0,.2,1);
+}
+.loan-card:hover, .info-card:hover {
+  transform: translateY(-14px) scale(1.04) rotate(-1deg);
+  box-shadow: 0 12px 32px 0 rgba(0,123,255,0.18), 0 2px 16px 0 rgba(60,60,60,0.10);
+  z-index: 2;
+}
+
+/* Navbar Link Underline Animation */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background:#04504e;
+  transition: all 0.4s cubic-bezier(.4,0,.2,1);
+}
+.nav-link:hover::after, .nav-link.active::after {
+  left: 0;
+  width: 100%;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-18px);}
   }
   
