@@ -1242,6 +1242,9 @@ font-size: 0.8rem;
     .scheme-name {
         font-size: 0.85rem;
     }
+    .info-card-img {
+        min-width: auto !important;
+    }
 }
 
 @media (max-width: 575.98px) {
