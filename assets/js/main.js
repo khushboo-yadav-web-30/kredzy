@@ -27,6 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Smooth scrolling for Home button in navbar
+    const homeButton = document.querySelector('.navbar-nav .nav-link[href="index.html"]');
+    if (homeButton) {
+        homeButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
     // Scroll to top button functionality
     const scrollToTopButton = document.getElementById("scrollToTop");
     if (scrollToTopButton) {
