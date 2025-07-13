@@ -492,7 +492,7 @@ overflow: hidden;
     border: 1px solid #f3f4f6;
 }
 .btn:hover{
-    border-color: aquamarine !important;
+    border-color: #1c6b69 !important;
 }
 
 .loan-card:hover {
