@@ -40,7 +40,7 @@ a:hover {
     color: var(--primary-dark);
 }
 html {
-    scroll-padding-top: 90px; /* ya jitna aapke navbar ki height ho */
+    scroll-padding-top: 100px; /* ya jitna aapke navbar ki height ho */
   }
 
 .section-title {
@@ -87,7 +87,7 @@ html {
     margin-left: 2rem;
 }
 .navbar.scrolled {
-    padding: 0.75rem 0;
+    padding: 0.35rem 0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -439,6 +439,7 @@ overflow: hidden;
 
 .btn-outline-primary {
     color: var(--primary-color);
+    border-color: none !important;
     border-color: var(--primary-color);
 }
 
@@ -446,6 +447,7 @@ overflow: hidden;
     background-color: var(--primary-color);
     color: #fff;
     transform: translateY(-2px);
+    border-color: none !important;
     box-shadow: 0 4px 6px rgba(4, 80, 78, 0.25);
 }
 
@@ -489,6 +491,9 @@ overflow: hidden;
     transition: var(--transition);
     position: relative;
     border: 1px solid #f3f4f6;
+}
+.btn:hover{
+    border-color: aquamarine !important;
 }
 
 .loan-card:hover {
