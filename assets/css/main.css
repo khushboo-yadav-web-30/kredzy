@@ -84,7 +84,7 @@ html {
     transition: var(--transition);
 }
 .navbar-logo{
-    margin-left: 3rem;
+    margin-left: 2rem;
 }
 .navbar.scrolled {
     padding: 0.75rem 0;
@@ -265,8 +265,8 @@ html {
             #fff 0%,
             #fff 30%,
             #f9fafb 30%,
-            #f9fafb 70%,
-            #fff 70%,
+            #f9fafb 82%,
+            #fff 50%,
             #fff 100%
         );
         padding: 3rem 0 5rem;
@@ -302,7 +302,7 @@ html {
     #fff 24%,
     #fff 20%,
     #f9fafb  25%,
-    #f9fafb  75%,
+    #f9fafb  82%,
     #fff 50%,
     #fff 100%
 );
@@ -1298,7 +1298,6 @@ hr {
   
 /* Section Fade-in Animation */
 .section-animate {
-  opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
 }
