@@ -1201,10 +1201,6 @@ font-size: 0.8rem;
     .info-card-img-wrap {
         height: 30%;
     }
-    .info-card-img {
-        min-height: 80px;
-        max-height: 140px;
-    }
 }
 
 @media (max-width: 767.98px) {
