@@ -10614,10 +10614,10 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   display: none; }
 
 .header {
-  height: var(--dz-header-height);
+  height: auto;
   z-index: 1;
   position: var(--dz-header-pos);
-  padding: 0rem;
+  padding: 1.4rem 0rem;
   background: var(--headerbg);
   z-index: 3;
   top: 0;
@@ -33433,3 +33433,13 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+.placeholder-line {
+  height: 12px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.placeholder-content {
+  min-height: 60px;
+}
