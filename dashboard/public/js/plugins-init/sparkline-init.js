@@ -47,12 +47,12 @@
 				//width: "100%",
 				width: getSparkLineGraphBlockSize('#sparkline8'),
 				height: "50",
-				lineColor: "#3b4cb8",
+				lineColor: "#04504e",
 				fillColor: "rgba(59, 76, 184, .5)",
-				minSpotColor: "#3b4cb8",
-				maxSpotColor: "#3b4cb8",
-				highlightLineColor: "#3b4cb8",
-				highlightSpotColor: "#3b4cb8",
+				minSpotColor: "#04504e",
+				maxSpotColor: "#04504e",
+				highlightLineColor: "#04504e",
+				highlightSpotColor: "#04504e",
 				
 			});
 		}

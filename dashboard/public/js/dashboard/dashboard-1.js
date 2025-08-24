@@ -26,7 +26,7 @@
 				name: "New Clients",
 				data: [75, 150, 225, 200, 35, 50, 150, 89, 50, 78, 50, 60, 40, 160, 90, 40]
 			}],
-			colors: ['#3B4CB8'],
+			colors: ['#04504e'],
 			grid: {
 				show: false
 			},
@@ -77,12 +77,12 @@
         stroke: {
           curve: 'smooth',
 		  width: 2,
-		  colors: ['#3B4CB8','#37D159'],
+		  colors: ['#04504e','#37D159'],
         },
 		legend: {
 			show: false,
 		},
-		colors: ['#3B4CB8','#37D159'],
+		colors: ['#04504e','#37D159'],
 		xaxis: {
           categories: ["April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
         }

@@ -49,7 +49,7 @@
 				},
 				distributed: true
 			},
-			colors:['#3B4CB8'],
+			colors:['#04504e'],
 			grid: {
 				show: false,
 			},
@@ -156,7 +156,7 @@
             shade: 'dark',
             type: 'horizontal',
             shadeIntensity: 0.5,
-            gradientToColors: ['#3B4CB8'],
+            gradientToColors: ['#04504e'],
             inverseColors: true,
             opacityFrom: 1,
             opacityTo: 1,
@@ -252,7 +252,7 @@
         stroke: {
           curve: 'smooth',
 		  width: 5,
-		  colors: ['#3B4CB8'],
+		  colors: ['#04504e'],
         },
 		legend: {
 			show: false,
@@ -260,7 +260,7 @@
 		 markers: {
           size: 0,
 		  border:0,
-		  colors: ['#3B4CB8'],
+		  colors: ['#04504e'],
           hover: {
             size: 8,
           }
@@ -284,9 +284,9 @@
           categories: ["April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec.."]
         },
 		fill: {
-			colors: ['#3B4CB8'],
+			colors: ['#04504e'],
 		},
-		colors:['#3B4CB8'],
+		colors:['#04504e'],
         tooltip: {
 			 
           x: {
