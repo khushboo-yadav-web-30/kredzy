@@ -394,7 +394,7 @@
                         <ul aria-expanded="false">
                             <!-- <li><a href="chart-flot.html">Flot</a></li>
                             <li><a href="chart-morris.html">Morris</a></li> -->
-                            <li><a href="chat-managment.html">Charts</a></li>
+                            <li><a href="chat-managment.html">Chats</a></li>
                             <!-- <li><a href="chart-chartist.html">Chartist</a></li>
                             <li><a href="chart-sparkline.html">Sparkline</a></li>
                             <li><a href="chart-peity.html">Peity</a></li> -->
@@ -449,6 +449,7 @@
 							<span class="nav-text">More</span>
 						</a>
                         <ul aria-expanded="false">
+							<li><a href="page-register.html">Reported</a></li>
                             <li><a href="page-register.html">Queries</a></li>
                             <li><a href="page-register.html">Help Center</a></li>
                             <li><a href="page-register.html">Feedback</a></li>
@@ -944,94 +945,6 @@
 <!-- DataTables Initialization -->
 <script src="public/js/plugins-init/datatables.init.js"></script>
 
-<!-- Debug script to check chart elements -->
-<script>
-    // Debug: Check if chart elements exist
-    jQuery(document).ready(function(){
-        console.log('DOM ready - checking chart elements:');
-        console.log('chartTimeline element:', document.querySelector("#chartTimeline"));
-        console.log('chartBar element:', document.querySelector("#chartBar"));
-        console.log('monocromeChart element:', document.querySelector("#monocromeChart"));
-        
-        // Check if ApexCharts is loaded
-        console.log('ApexCharts loaded:', typeof ApexCharts !== 'undefined');
-        
-        // Test ApexCharts with a simple chart
-        if (typeof ApexCharts !== 'undefined') {
-            console.log('Testing ApexCharts with simple chart...');
-            try {
-                var testElement = document.createElement('div');
-                testElement.id = 'testChart';
-                testElement.style.width = '100px';
-                testElement.style.height = '100px';
-                testElement.style.border = '1px solid red';
-                document.body.appendChild(testElement);
-                
-                var testOptions = {
-                    chart: {
-                        type: 'line',
-                        height: 100,
-                        width: 100
-                    },
-                    series: [{
-                        name: 'Test',
-                        data: [1, 2, 3, 4, 5]
-                    }],
-                    xaxis: {
-                        categories: ['A', 'B', 'C', 'D', 'E']
-                    }
-                };
-                
-                var testChart = new ApexCharts(testElement, testOptions);
-                testChart.render();
-                console.log('Test chart rendered successfully');
-                
-                // Remove test element after 3 seconds
-                setTimeout(function() {
-                    testElement.remove();
-                }, 3000);
-                
-            } catch (error) {
-                console.error('Error creating test chart:', error);
-            }
-        } else {
-            console.error('ApexCharts is not loaded!');
-        }
-        
-        // Check if jQuery Vector Maps is loaded
-        console.log('jQuery Vector Maps plugin loaded:', typeof $.fn.vectorMap !== 'undefined');
-        if (typeof $.fn.vectorMap !== 'undefined') {
-            console.log('jQuery Vector Maps version:', $.fn.vectorMap.version || 'Unknown');
-            
-            // Test if we can create a simple vector map
-            try {
-                var testMapElement = document.createElement('div');
-                testMapElement.id = 'testVectorMap';
-                testMapElement.style.width = '200px';
-                testMapElement.style.height = '200px';
-                testMapElement.style.border = '1px solid blue';
-                document.body.appendChild(testMapElement);
-                
-                $(testMapElement).vectorMap({
-                    map: 'world_en',
-                    backgroundColor: 'transparent',
-                    height: 200,
-                    width: 200
-                });
-                
-                console.log('Test vector map created successfully');
-                
-                // Remove test element after 3 seconds
-                setTimeout(function() {
-                    testMapElement.remove();
-                }, 3000);
-                
-            } catch (error) {
-                console.error('Error creating test vector map:', error);
-            }
-        }
-    });
-</script>
 
 <script>
     function carouselReview(){
